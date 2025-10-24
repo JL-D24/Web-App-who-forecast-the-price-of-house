@@ -40,3 +40,7 @@ B : Proportion de personnes afro-américaines par ville, calculée par la formul
 LSTAT : Pourcentage de la population considérée comme ayant un statut socio-économique faible.
 
 MEDV : Valeur médiane des logements occupés par leur propriétaire, en milliers de dollars.
+
+
+
+Résultat : Les trois modèles ont des performances très intéressantes, cependant le modèle linéaire avec son prix de prédiction le plus élevé en termes de volume n’arrive pas à bien mesurer l’écart moyen les prédictions et les données réelles avec le MAE les plus élevé des trois modèles. Donc, le meilleur modèle dans le cas de notre projet qui nous permet de mieux prédire le prix des logements sur le marché à Boston est le gradient Boosting, car son R2 le plus proche de 1 explique à plus de 89% la variance des données mais aussi minimise mieux l’écart moyen les prédictions et les données réelles(MAE). A noter aussi, le statut socio-économique des gens et le nombre de pièce dans la maison ont un impact considérable sur le prix des logements.
