@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Web App who forecast the price of house", layout="wide")
 
 # Titre de l'application
-st.title("🏠 Web App who forecast the price of house - Comparaison Multi Models")
+st.title("Web App who forecast the price of house - Comparaison Multi Models")
 st.markdown("""
 Cette application compare les prédictions de trois modèles différents pour estimer les prix des maisons à Boston(USA).
 """)
@@ -68,12 +68,12 @@ for name, model in models.items():
     trained_models[name] = pipeline
 
 # Interface utilisateur
-st.sidebar.header("📋 Paramètres du Bien")
+st.sidebar.header("Paramètres du Bien")
 
 def get_user_input():
     inputs = {}
     
-    with st.sidebar.expander("📍 Localisation"):
+    with st.sidebar.expander("Localisation"):
         inputs['CRIM'] = st.slider('Taux de criminalité (CRIM)', 
                                   float(X['CRIM'].min()), 
                                   float(X['CRIM'].max()), 
@@ -88,7 +88,7 @@ def get_user_input():
                                    float(X['INDUS'].median()))
         inputs['CHAS'] = st.selectbox('Proximité rivière Charles (CHAS)', [0, 1])
     
-    with st.sidebar.expander("🏡 Caractéristiques"):
+    with st.sidebar.expander("Caractéristiques"):
         inputs['NOX'] = st.slider('Concentration NOx (NOX)', 
                                  float(X['NOX'].min()), 
                                  float(X['NOX'].max()), 
@@ -106,7 +106,7 @@ def get_user_input():
                                  float(X['DIS'].max()), 
                                  float(X['DIS'].median()))
     
-    with st.sidebar.expander("📊 Autres paramètres"):
+    with st.sidebar.expander("Autres paramètres"):
         inputs['RAD'] = st.slider('Accessibilité autoroutes (RAD)', 
                                  int(X['RAD'].min()), 
                                  int(X['RAD'].max()), 
@@ -142,12 +142,12 @@ def get_user_input():
 user_input = get_user_input()
 
 # Affichage des inputs
-st.subheader("📌 Paramètres sélectionnés")
+st.subheader("Paramètres sélectionnés")
 st.write(user_input)
 
 # Bouton de prédiction
-if st.sidebar.button("🔮 Comparer les prédictions"):
-    st.subheader("📊 Résultats des prédictions")
+if st.sidebar.button("Comparer les prédictions"):
+    st.subheader("Résultats des prédictions")
     
     # Prédictions et métriques
     results = []
@@ -173,7 +173,7 @@ if st.sidebar.button("🔮 Comparer les prédictions"):
     st.table(results_df)
     
     # Graphique comparatif des prédictions
-    st.subheader("📈 Comparaison des prédictions")
+    st.subheader("Comparaison des prédictions")
     fig, ax = plt.subplots()
     models = list(predictions.keys())
     pred_values = list(predictions.values())
@@ -183,7 +183,7 @@ if st.sidebar.button("🔮 Comparer les prédictions"):
     st.pyplot(fig)
     
     # Graphique de performance des modèles
-    st.subheader("🏆 Performance des modèles")
+    st.subheader("Performance des modèles")
     col1, col2 = st.columns(2)
     
     with col1:
@@ -204,7 +204,7 @@ if st.sidebar.button("🔮 Comparer les prédictions"):
         st.pyplot(fig2)
     
     # Importance des features pour Random Forest
-    st.subheader("🔍 Importance des caractéristiques (Random Forest)")
+    st.subheader("Importance des caractéristiques (Random Forest)")
     try:
         rf_model = trained_models["Random Forest"].named_steps['regressor']
         feature_importances = rf_model.feature_importances_
@@ -239,8 +239,8 @@ if st.sidebar.button("🔮 Comparer les prédictions"):
         st.warning(f"Impossible d'afficher l'importance des features: {str(e)}")
 
 # Section d'exploration des données
-if st.checkbox("🔍 Afficher l'exploration des données"):
-    st.subheader("📂 Exploration du Dataset")
+if st.checkbox("Afficher l'exploration des données"):
+    st.subheader("Exploration du Dataset")
     
     tab1, tab2, tab3 = st.tabs(["Données Brutes", "Statistiques", "Visualisation"])
     
