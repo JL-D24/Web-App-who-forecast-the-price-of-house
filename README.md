@@ -1,4 +1,4 @@
-Project : Development of application web on streamlit who forecasting price of house 
+Project : Development of application on streamlit who forecasting price of house 
 
 Objectives :  
                 -Identify paterns and trends to predict the price of house on the Real Estate at Boston(USA).
